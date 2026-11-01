@@ -1,0 +1,129 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0d1117;
+    color: white;
+    overflow-x: hidden;
+}
+
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #ffcc00;
+    transition: 0.3s;
+}
+
+.logo:hover {
+    color: #ffd700;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #ffcc00;
+}
+
+.aboutusContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 100px 20px;
+}
+
+.aboutusDisplay {
+    max-width: 900px;
+    /* background: rgba(255, 255, 255, 0.1); */
+    padding: 40px;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.1); */
+    backdrop-filter: blur(10px);
+}
+
+.aboutusDisplayTextContainer h1, h2 {
+    color: #ffcc00;
+    /* font-size: 20px; */
+    letter-spacing: 5px;
+    padding-top: 20px;
+}
+
+.aboutusDisplayTextContainer p, ul {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    letter-spacing: 5px;
+}
+
+.aboutusDisplayTextContainer ul {
+    list-style: none;
+    padding: 10px 0;
+}
+
+.aboutusDisplayTextContainer ul li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.aboutusDisplayTextContainer ul li strong {
+    color: #ffcc00;
+    margin-right: 10px;
+    letter-spacing: 5px;
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        margin: 0 10px;
+    }
+
+    .aboutusDisplay {
+        padding: 20px;
+    }
+
+    .aboutusDisplayTextContainer p, ul {
+        font-size: 16px;
+    }
+}

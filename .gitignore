@@ -1,0 +1,12 @@
+# Large media (exceeds GitHub's 100 MB per-file limit)
+7_19_08_19.mp4
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <link rel="stylesheet" href="wellcome.css" />
+</head>
+
+<body>
+    <video src="MainBack-ground.mp4" loop muted autoplay></video>
+    <div class="container">
+        <div class="main">
+            <center>
+                <div class="content">
+                    <h1 id="n1"></h1>
+                </div>
+                <button class="btn-53" onclick="window.open('choose.html','_blank')">
+                    <div class="original">START Quiz</div>
+                    <div class="letters">
+
+                        <span>S</span>
+                        <span>T</span>
+                        <span>A</span>
+                        <span>R</span>
+                        <span>T</span>
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span>Q</span>
+                        <span>U</span>
+                        <span>I</span>
+                        <span>Z</span>
+                    </div>
+                </button>
+            </center>
+        </div>
+    </div>
+    <script>
+        let fullName = localStorage.getItem("fullName").toUpperCase();
+        let collegeName = localStorage.getItem("collegeName").toUpperCase();
+    
+        document.getElementById("n1").innerHTML = 
+            `Welcome to Quiz World <br> <span style="color: red;">${fullName}</span> <br> From <br> <span style="color: red;">${collegeName}</span>`;
+    </script>
+    
+</body>
+
+</html>

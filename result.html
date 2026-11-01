@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #1f1f1f;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .result-container {
+            background: rgba(255, 255, 255, 0.1);
+            /* backdrop-filter: blur(1px); */
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            border: 2px solid rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: gold;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .user-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: red;
+        }
+
+        .score-section {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .round-score {
+            font-size: 1.2em;
+            margin: 10px 0;
+            color: #ffcc00;
+        }
+
+        .total-score {
+            font-size: 1.8em;
+            margin: 20px 0;
+            color: gold;
+            font-weight: bold;
+        }
+
+        .message {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background: linear-gradient(45deg, gold, orange);
+            color: black;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px gold;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted>
+        <source src="7_19_08_19.mp4" type="video/mp4">
+    </video>
+    
+    <div class="result-container">
+        <h1 class="user-name" id="user-name"></h1>
+        <h1>Your Quiz Results</h1>
+        <div class="score-section">
+            <div class="round-score">Round 1 (Easy): <span id="easy-score">0</span>/10</div>
+            <div class="round-score">Round 2 (Medium): <span id="medium-score">0</span>/10</div>
+            <div class="round-score">Round 3 (Hard): <span id="hard-score">0</span>/10</div>
+        </div>
+        <div class="total-score">
+            Total Score: <span id="total-score">0</span>/30
+        </div>
+        <div class="message" id="result-message"></div>
+        <div class="buttons">
+            <button onclick="window.location.href='choose.html'">Play Again</button>
+            <button onclick="window.location.href='quiz.html'">Go to Home</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const roundScores = JSON.parse(localStorage.getItem('roundScores')) || { easy: 0, medium: 0, hard: 0 };
+            const totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+            let fullName = localStorage.getItem("fullName") || "Player";
+            fullName = fullName.toUpperCase();
+
+            document.getElementById('easy-score').textContent = roundScores.easy;
+            document.getElementById('medium-score').textContent = roundScores.medium;
+            document.getElementById('hard-score').textContent = roundScores.hard;
+            document.getElementById('total-score').textContent = totalScore;
+            document.getElementById('user-name').innerHTML = `<span style="color: red;">${fullName}</span>!!<br>`;
+
+            let message = "";
+            let messageColor = "";
+            let audioFile = "";
+
+            if (totalScore >= 25) {
+                message = "🎉 Excellent! You're a Quiz Master!";
+                messageColor = "lime";
+                audioFile = "fire.mp3";
+            } else if (totalScore >= 15) {
+                message = "😊 Good job! Keep improving!";
+                messageColor = "gold";
+                audioFile = "fire.mp3";
+            } else if (totalScore >= 5) {
+                message = "😐 Not bad, but you can do better!";
+                messageColor = "orange";
+                audioFile = "fire.mp3";
+            } else {
+                message = "😢 Don't give up! Try again!";
+                messageColor = "red";
+                audioFile = "fire.mp3";
+            }
+
+            document.getElementById('result-message').textContent = message;
+            document.getElementById('result-message').style.color = messageColor;
+
+            if (audioFile) {
+                const audio = new Audio(audioFile);
+                audio.play();
+            }
+        };
+    </script>
+</body>
+</html>

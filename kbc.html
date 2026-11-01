@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KBC Question Display</title>
+    <link rel="stylesheet" href="kbc.css">
+    <script src="kbc.js"></script>
+</head>
+
+<body>
+    <video src="QustionDisplayBack-ground.mp4" muted loop autoplay id="video"></video>
+<audio id="question-audio" src="que.mp3"></audio>
+
+    <div class="player-info">
+        <div class="score-container">
+            <span>Score: <span id="current-score">0</span></span>
+        </div>
+        <div class="question-count">
+            <span>Question: <span id="current-question">1</span>/<span id="total-questions">10</span></span>
+        </div>
+    </div>
+
+    <div class="timer-container">
+        <div id="timer" class="timer">Time Left: 30s</div>
+        <div class="progress-bar">
+            <div id="progress" class="progress"></div>
+        </div>
+    </div>
+
+    <div class="kbc-container">
+        <div class="question-container">
+            <p id="question">Loading Question...</p>
+        </div>
+
+        <div class="options-container">
+            <button class="option" id="option_1_label" onclick="selectOption(0)">Option A</button>
+            <button class="option" id="option_2_label" onclick="selectOption(1)">Option B</button>
+            <button class="option" id="option_3_label" onclick="selectOption(2)">Option C</button>
+            <button class="option" id="option_4_label" onclick="selectOption(3)">Option D</button>
+        </div>
+
+        <div class="submit">
+            <button class="next" onclick="next()" id="next">Next</button>
+        </div>
+    </div>
+
+</body>
+</html>
